@@ -63,7 +63,7 @@ const handleSearch = () => {
     // console.log(searchText)
     loadPhone(searchText);
 }
-// handle searchrecap
+/* // handle searchrecap
 const handleSearch2 = () => {
     // console.log(2345)
     toggleLoadingSpinner(true);
@@ -71,7 +71,9 @@ const handleSearch2 = () => {
     const searchText = searchField.value;
     loadPhone(searchText);
     console.log(searchText)
-}
+} */
+
+
 const toggleLoadingSpinner = (isLoading) => {
     const loadingSpinner = document.getElementById("loading-spinner")
     if (isLoading) {
@@ -79,7 +81,13 @@ const toggleLoadingSpinner = (isLoading) => {
     } else{
         loadingSpinner.classList.add("hidden")
     }
-    // console.log(3456)
+    
+}
+
+// handel show all
+
+const handleShowAll = () =>{
+console.log(3456)
 }
 
 // loadPhone()
