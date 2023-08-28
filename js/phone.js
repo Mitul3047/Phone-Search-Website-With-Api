@@ -13,19 +13,19 @@ const displayPhones = phones => {
 
     const phoneContainer = document.getElementById('phone-container')
     // clear container before new serach
-    phoneContainer.textContent ="";
+    phoneContainer.textContent = "";
     console.log(phones.length)
     // show all buton
-const showAllButton = document.getElementById('show-all-btn')
+    const showAllButton = document.getElementById('show-all-btn')
     if (phones.length > 12) {
         showAllButton.classList.remove('hidden')
-    }else{
+    } else {
         showAllButton.classList.add('hidden')
     }
 
     // display 1ST 12 phone
     // phones = phones.slice(0,5)
-    phones = phones.slice(0,12)
+    phones = phones.slice(0, 12)
 
 
     phones.forEach(phone => {
@@ -49,25 +49,38 @@ const showAllButton = document.getElementById('show-all-btn')
         // append
         phoneContainer.appendChild(phoneCard)
     });
+
+    //hide loading
+    toggleLoadingSpinner(false); 
 }
 
 // handle search
- const handleSearch = () =>{
+const handleSearch = () => {
     // console.log(2345)
-const searchField = document.getElementById('search-field');
-const searchText = searchField.value;
-// console.log(searchText)
-loadPhone(searchText);
+    toggleLoadingSpinner(true);
+    const searchField = document.getElementById('search-field');
+    const searchText = searchField.value;
+    // console.log(searchText)
+    loadPhone(searchText);
 }
-
-const handleSearch2 = () =>{
+// handle searchrecap
+const handleSearch2 = () => {
     // console.log(2345)
-const searchField = document.getElementById('search-field2');
-const searchText = searchField.value;
-loadPhone(searchText);
-console.log(searchText)
+    toggleLoadingSpinner(true);
+    const searchField = document.getElementById('search-field2');
+    const searchText = searchField.value;
+    loadPhone(searchText);
+    console.log(searchText)
 }
-
+const toggleLoadingSpinner = (isLoading) => {
+    const loadingSpinner = document.getElementById("loading-spinner")
+    if (isLoading) {
+        loadingSpinner.classList.remove("hidden")
+    } else{
+        loadingSpinner.classList.add("hidden")
+    }
+    // console.log(3456)
+}
 
 // loadPhone()
 
